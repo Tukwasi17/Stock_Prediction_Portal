@@ -41,16 +41,37 @@ const Register = () => {
             <h3 className='text-light text-center mb-4'>Create An Account</h3>
             <form onSubmit={handleRegistration}>
               <div className='mb-3'>
-                <input type="text" className='form-control' placeholder='Enter Username' name=" "value={username} onChange={(e) => setUsername(e.target.value)} /> {/* onChange to be able to write */}
+                <input 
+                  type="text" 
+                  className='form-control' 
+                  placeholder='Enter Username' 
+                  value={username} 
+                  onChange={(e) => setUsername(e.target.value)}
+                  style={{ backgroundColor: '#fff', color: '#000', border: '1px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}
+                /> {/* onChange to be able to write */}
                 <small>{errors.username && <div className='text-danger'>{errors.username}</div>}</small>
               </div>
               
               <div className='mb-3'>
-                <input type="email" className='form-control' placeholder='email' name="" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input 
+                  type="email" 
+                  className='form-control' 
+                  placeholder='email' 
+                  value={email} 
+                  onChange={(e) => setEmail(e.target.value)}
+                  style={{ backgroundColor: '#fff', color: '#000', border: '1px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}
+                />
               </div>
               
               <div className='mb-3'>
-                <input type="password" className='form-control' placeholder='Set password' name="" value={password} onChange={(e) => setPassword(e.target.value)} />
+                <input 
+                  type="password" 
+                  className='form-control' 
+                  placeholder='Set password' 
+                  value={password} 
+                  onChange={(e) => setPassword(e.target.value)}
+                  style={{ backgroundColor: '#fff', color: '#000', border: '1px solid #ccc', padding: '10px', borderRadius: '5px', width: '100%' }}
+                />
                 <small>{errors.password && <div className='text-danger'>{errors.password}</div>}</small>
               </div>
               {success && <div className='alert alert-success'>Registeration Successful</div>}

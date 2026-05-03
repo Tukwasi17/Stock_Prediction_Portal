@@ -9,15 +9,16 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ['username', 'email', 'password']
 
-        def create(self, validated_data):
-            #creating new user in the database
-            # User.objects.create = save the password in a plain text, you need to hash the pass
-            # User.objects.create_user = automatic hash the password
-            user = User.objects.create_user(
-                #you can use (**validated_data) to pass the three above
-                validated_data['username'],
-                validated_data['email'],
-                validated_data['password']
-            )
-            #user = User.objects.create_user(**validated_data)
-            return user
+    def create(self, validated_data):
+        #creating new user in the database
+        # User.objects.create = save the password in a plain text, you need to hash the pass
+        # User.objects.create_user = automatic hash the password
+        email = validated_data.get('email', '')
+        user = User.objects.create_user(
+            #you can use (**validated_data) to pass the three above
+            validated_data['username'],
+            email,
+            validated_data['password']
+        )
+        #user = User.objects.create_user(**validated_data)
+        return user
